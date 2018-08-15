@@ -1,4 +1,4 @@
-// Fetching data 
+// Fetching data
 
 var request = new XMLHttpRequest();
 
