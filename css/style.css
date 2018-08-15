@@ -30,15 +30,9 @@ main {
 
 .dattoblue-text {
   color: #199ED9 !important;
-}
 
-@font-face {
-  font-family: 'dattoDIN';
-  src: url('/fonts/DattoDIN-Regular.eot'),
-  url('/fonts/DattoDIN-Regular.ttf') format('truetype'),
-  url('/fonts/DattoDIN-Regular.svg#font') format('svg'); 
 }
 
 html{
-  font-family: 'dattoDIN', !important;
+  font-family: 'Raleway', sans-serif;
 }
