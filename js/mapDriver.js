@@ -16,23 +16,31 @@ function initMap() {
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    trucks=[
-        {
-            name: "Chris's Stupid Taco Truck",
-            description: "TACOS!",
-            twitter: "@_tweedge",
-            lat: 43.155916,
-            long: -77.605675
-        },
-        {
-            name: "Bitler's cheeseless pizza",
-            description: "Pizza!",
-            twitter: "@chrissy_bits",
-            lat: 43.156071,
-            long: -77.605004
-        }
-    ]
-    addMapMarkers(map,trucks)
+    // trucks=[
+    //     {
+    //         name: "Chris's Stupid Taco Truck",
+    //         description: "TACOS!",
+    //         twitter: "@_tweedge",
+    //         lat: 43.155916,
+    //         long: -77.605675
+    //     },
+    //     {
+    //         name: "Bitler's cheeseless pizza",
+    //         description: "Pizza!",
+    //         twitter: "@chrissy_bits",
+    //         lat: 43.156071,
+    //         long: -77.605004
+    //     }
+    // ]
+
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
+    request.responseType='text';
+    request.onload = function() {
+        trucks=JSON.parse(request.response);
+        addMapMarkers(map,trucks);
+    };
+    request.send();
   }
 
 
