@@ -1,87 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Starter Template - Materialize</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Food Trucks</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADY/XP42P1z+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANj9c/jY/XP4AAAAAAAAAAAAAAAAAAAAAAAAAADY/XP42P1z+Nj9c/jY/XP4AAAAAAAAAAAAAAAAAAAAANj9c/jY/XP42P1z+Nj9c/gAAAAAAAAAAAAAAAEJv/v42P1z+Nj9c/jY/XP42P1z+Qm/+/kJv/v5Cb/7+HVDz/jY/XP42P1z+Nj9c/jY/XP5Cb/7+AAAAAAAAAABCb/7+Qm/+/jY/XP42P1z+Qm/+/kJv/v5Cb/7+Qm/+/h1Q8/4dUPP+Nj9c/jY/XP5Cb/7+Qm/+/gAAAAAAAAAA6evv/+nr7//p6+//6evv/+nr7//p6+//6evv/x1Q8/4ALN3+ACzd/gAs3f4ALN3+HVDz/gDV/v8AAAAAAAAAAB1Q8/43Mib/NzIm/zcyJv83Mib/NzIm/zcyJv8dUPP+ACzd/gAs3f4ALN3+ACzd/h1Q8/4A1f7/AAAAAAAAAAAdUPP+NzIm/zcyJv83Mib/NzIm/zcyJv83Mib/HVDz/jcyJv83Mib/NzIm/wAs3f4AAAAAAAAAAAAAAAAAAAAAAKr+/gCq/v4Aqv7+AKr+/gCq/v4Aqv7+AKr+/h1Q8/43Mib/NzIm/zcyJv8ALN3+AAAAAAAAAAAAAAAAAAAAAA+S+f4A1f7/ANX+/wDV/v8A1f7/ANX+/wDV/v8dUPP+NzIm/zcyJv83Mib/CSF1LwAAAAAAAAAAAAAAAAAAAAAdUPP+HVDz/h1Q8/4dUPP+HVDz/h1Q8/4dUPP+HVDz/gAs3f4ALN3+ACzd/gAAAAAAAAAAAAAAAAAAAAAAAAAAQm/+/kJv/v5Cb/7+Qm/+/kJv/v5Cb/7+Qm/+/kJv/v5Cb/7+Qm/+/kJv/v4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AADn5wAAw8MAAIABAACAAQAAgAEAAIABAACABwAAgAcAAIAPAACADwAAgA8AAP//AAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
 </head>
+
 <body>
   <main>
-      <div class="container">
-        <h1 class="header center dattoblue-text">Rochester Food Truck Tracker</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Powered by <a href="https://www.datto.com/"<span class="dattoblue-text">Datto</span></a></h5>
-        </div>
-
+    <nav>
+      <div class="nav-wrapper foodtrax-pink">
+        <a href="#" class="brand-logo center">FoodTrax</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
       </div>
+    </nav>
 
-    <div class="container">
-        <div class="row">
-          <div class="col s12 m8">
-              <img class="materialboxed" width="650" src="media/rocmap.png">
+    <ul id="slide-out" class="sidenav">
+      <li><a class="subheader">Within 1 mile</a></li>
+      <li><a href="#!"><i class="material-icons">fastfood</i>Hit me like a truck</a></li>
+      <li><a href="#!"><i class="material-icons">fastfood</i>Truckstop was a better</a></li>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li><a class="subheader">Walk, fatass.</a></li>
+      <li><a class="waves-effect" href="#!">what anoter truck</a></li>
+    </ul>
 
-          </div>
+    <div id="googleMap" style="width: 100%; height: 93vh; !important"></div>
 
-          <div class="col s12 m4">
-              <table class="highlight">
-                  <thead>
-                    <tr>
-                        <th>Truck</th>
-                        <th>Location</th>
-                    </tr>
-                  </thead>
-          
-                  <tbody>
-                    <tr>
-                      <td>Le Petit Poutine</td>
-                      <td>Elm Street</td>
-                    </tr>
-                    <tr>
-                      <td>Stingray Sushifusion</td>
-                      <td>Elm Street</td>
-                    </tr>
-                    <tr>
-                      <td>Meat The Press</td>
-                      <td>Elm Street</td>
-                    </tr>                    
-                    <tr>
-                      <td>Tuscan Wood Fired Pi </td>
-                      <td>Elm Street</td>
-                    </tr>                    
-                    <tr>
-                      <td>Roc City Sammich</td>
-                      <td>Elm Street</td>
-                    </tr>                    
-                    <tr class="red-text">
-                      <td>Neno’s</td>
-                      <td>OFFLINE</td>
-                    </tr>
-                  </tbody>
-                </table>
-          </div>
-        </div>
+    <script>
+      function myMap() {
+        var mapProp = {
+          center: new google.maps.LatLng(43.1566, -77.6088),
+          zoom: 5,
+          disableDefaultUI: true
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+      }
+    </script>
 
-      </div>
-  </main>
-
-  <footer class="page-footer dattoblue">
-    <div class="section">
-      <div class="container">
-        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Datto Interns</a>
-      </div>
+    <div class="fixed-action-btn">
+      <a href="#" data-target="slide-out" class="btn-floating btn-large foodtrax-pink sidenav-trigger">
+              <i class="material-icons">menu</i>
+            </a>
     </div>
-  </footer>
+
+
+
+  </main>
 
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.fixed-action-btn').floatingActionButton();
+      $('.sidenav').sidenav({
+        menuWidth: 50, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+    });
+    $('.tap-target').tapTarget();
+  </script>
+  <script src="js/mapDriver.js"></script>
+  <script src="js/markerClusterer.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=damnitping&callback=initMap"></script>
   </body>
 </html>
