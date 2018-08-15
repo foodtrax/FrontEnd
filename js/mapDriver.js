@@ -6,6 +6,13 @@ function initMap() {
     var mapProp= {
         center: starting,
         zoom:17,
+        streetViewControl: false,
+        fullscreenControl: false,
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        mapTypeControl: false
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
