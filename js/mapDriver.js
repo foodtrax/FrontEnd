@@ -6,9 +6,18 @@ function initMap() {
     var mapProp= {
         center: starting,
         zoom:17,
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_BOTTOM
+        },
+        fullscreenControl: false,
+        mapTypeControl: false
+
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+    
     trucks=[
         {
             name: "Chris's Stupid Taco Truck",
