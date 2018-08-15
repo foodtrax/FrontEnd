@@ -2,22 +2,13 @@
 function initMap() {
     // The location of Uluru
     var starting = {lat: 43.156016, lng: -77.605294};
-    
+
     var mapProp= {
         center: starting,
         zoom:17,
-        zoomControl: true,
-        zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM
-        },
-        fullscreenControl: false,
-        mapTypeControl: false
-
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-    
     trucks=[
         {
             name: "Chris's Stupid Taco Truck",
@@ -69,12 +60,12 @@ function initMap() {
                 iw.close();
             })
         infowindow.open(map, marker);
-            
+
         });
         markers.push(marker)
 
     })
-    
+
 
     var markerCluster = new MarkerClusterer(map, markers,
         {
