@@ -43,7 +43,7 @@ function makeEntries(trucks) {
 		link.className += 'collapsible-header';
 		el.className += 'collapsible-body';
 		desc.className += 'subheader';
-    navBtn.className += 'waves-effect waves-light green btn-small'
+    navBtn.className += 'waves-effect waves-light foodtrax-peach black-text btn-small'
 
 		// lmao terrible way to do it but just wanna see how it looks rn let me live
 		link.innerHTML='<i class="material-icons">fastfood</i><i class="material-icons right gray-text" style="margin-right:0;">arrow_drop_down</i>';

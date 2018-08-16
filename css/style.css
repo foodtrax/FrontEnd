@@ -32,6 +32,16 @@ main {
   color: #DA627D !important;
 }
 
+
+.foodtrax-peach {
+  background-color: #FFC09F !important;
+}
+
+.foodtrax-peach-text {
+  color: #FFC09F !important;
+}
+
+
 html{
   font-family: 'Raleway', sans-serif;
 }
