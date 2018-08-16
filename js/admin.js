@@ -3,12 +3,13 @@
  */
 $(document).ready(function() {
     loadTruckInformation();
+    $('.collapsible').collapsible();
 });
 
 function getCollapsibleBody(truck) {
     var contents = "";
 
-    contents += '<form class="author-form-container center-align">';
+    contents += '<form class="auth-form-container center-align">';
     contents += '<div class="row">';
     contents += '<div class="input field col s12">';
     contents += '<input id="name-' + truck.id + '" type="text" class="underline-input">';
@@ -39,12 +40,12 @@ function loadTruckInformation()
         function(data) {
             var json = JSON.parse(data);
             var contentsToAdd = '';
-            for (var truck in json) {
+            json.forEach(function (truck) {
                 contentsToAdd += '<li>';
                 contentsToAdd += '<div class="collapsible-header">' + truck.name + "</div>";
                 contentsToAdd += '<div class="collapsible-body">' + getCollapsibleBody(truck) + '</div>';
                 contentsToAdd += '</li>';
-            }
+            });
 
             $("#truckList").html(contentsToAdd);
         }
