@@ -40,4 +40,5 @@ function makeModal(truck) {
 function centerOnPlace(marker){
 	map.setZoom(17)
 	map.setCenter(marker);
+	$(".sidenav").sidenav('close');
   }
