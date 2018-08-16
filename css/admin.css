@@ -1,3 +1,13 @@
 #truckList {
     color: black;
 }
+
+.header-full {
+    width:100%
+}
+
+.collapsible-container {
+    width: 100%;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}

@@ -11,17 +11,17 @@ function getCollapsibleBody(truck) {
 
     contents += '<form class="auth-form-container center-align">';
     contents += '<div class="row">';
-    contents += '<div class="input field col s12">';
-    contents += '<input id="name-' + truck.id + '" type="text" class="underline-input">';
-    contents += '<label for="name-' + truck.id + '">' + truck.name + '</label>';
+    contents += '<div class="input-field col s12">';
+    contents += '<input id="name-' + truck.id + '" type="text" class="underline-input" value="' + truck.name + '" />';
+    contents += '<label for="name-' + truck.id + '">Name</label>';
     contents += '</div>';
     contents += '<div class="input field col s12">';
-    contents += '<input id="description-' + truck.id + '" type="text" class="underline-input">';
-    contents += '<label for="description-' + truck.id + '">' + truck.description + '</label>';
+    contents += '<input id="description-' + truck.id + '" type="text" class="underline-input" value="' + truck.description + '">';
+    contents += '<label for="description-' + truck.id + '">Description</label>';
     contents += '</div>';
     contents += '<div class="input field col s12">';
-    contents += '<input id="twitter-' + truck.id + '" type="text" class="underline-input">';
-    contents += '<label for="twitter-' + truck.id + '">' + truck.email + '</label>';
+    contents += '<input id="twitter-' + truck.id + '" type="text" class="underline-input" value="' + truck.twitter + '">';
+    contents += '<label for="twitter-' + truck.id + '">Twitter</label>';
     contents += '</div>';
     contents += '<button class="btn waves-effect waves-light" type="button" id="updateButton-' + truck.id  + '">Update</button>';
     contents += '</div>';
@@ -41,8 +41,8 @@ function loadTruckInformation()
             var json = JSON.parse(data);
             var contentsToAdd = '';
             json.forEach(function (truck) {
-                contentsToAdd += '<li>';
-                contentsToAdd += '<div class="collapsible-header">' + truck.name + "</div>";
+                contentsToAdd += '<li class="collapsible-container">';
+                contentsToAdd += '<div class="collapsible-header header-full">' + truck.name + "</div>";
                 contentsToAdd += '<div class="collapsible-body">' + getCollapsibleBody(truck) + '</div>';
                 contentsToAdd += '</li>';
             });
