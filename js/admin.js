@@ -34,6 +34,7 @@ function getCollapsibleBody(truck) {
     contents += '<button class="btn waves-effect waves-light" type="button" data-truck-id="' + truck.id + '" id="updateButton-' + truck.id  + '">Update</button>';
     contents += '<button class="btn waves-effect waves-light" type="button" id="updateLocButton-' + truck.id  + '">Update Truck Location</button>';
     contents += '<button class="btn waves-effect waves-light" type="button" id="hideButton-' + truck.id  + '">Hide Truck from Map</button>';
+    contents += '<div id="notification-' + truck.id + '"></div>';
     contents += '</div>';
     contents += '</form>';
 
@@ -76,34 +77,34 @@ function updateTruckInformation(id)
 function updateTruckLocation(id)
 {
     if(navigator.geolocation) {
-        var loc = navigator.geolocation.getCurrentPosition(showPosition)
+        navigator.geolocation.getCurrentPosition(function(loc) {
+            $.post(
+                'https://roc.foodtrax.io/backend/api/update_truck_loc_web.php',
+                {
+                    truckId: id,
+                    lat: loc.coords.latitude,
+                    lon: loc.coords.longitude
+                },
+                function(data) {
+                    var json = JSON.parse(data);
+                    if(json.result === true) {
+                        $("#notification-" + id).html('Truck location updated.');
+                        $("#notification-" + id).removeClass('notification-bad');
+                        $("#notification-" + id).addClass('notification-ok');
+                    } else {
+                        $("#notification-" + id).html('An error occurred during update.');
+                        $("#notification-" + id).removeClass('notification-ok');
+                        $("#notification-" + id).addClass('notification-bad');
+                    }
+                }
+            )
+        });
     } else {
         $("#notification-" + id).addClass('notification-bad');
         $("#notification-" + id).removeClass('notification-ok');
         $("#notification-" + id).html("Couldn't get location");
         return;
     }
-
-    $.post(
-        'https://roc.foodtrax.io/backend/api/update_truck_loc_web.php',
-        {
-            truckId: id,
-            lat: loc.coords.latitude,
-            lon: loc.coords.longitude
-        },
-        function(data) {
-            var json = JSON.parse(data);
-            if(json.result === true) {
-                $("#notification-" + id).html('Truck location updated.');
-                $("#notification-" + id).removeClass('notification-bad');
-                $("#notification-" + id).addClass('notification-ok');
-            } else {
-                $("#notification-" + id).html('An error occurred during update.');
-                $("#notification-" + id).removeClass('notification-ok');
-                $("#notification-" + id).addClass('notification-bad');
-            }
-        }
-    )
 }
 
 function hideTruckLocation(id)
