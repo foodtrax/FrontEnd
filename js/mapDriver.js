@@ -12,6 +12,7 @@ function initMap() {
             position: google.maps.ControlPosition.LEFT_BOTTOM
         },
         mapTypeControl: false,
+        clickableIcons: false,
         gestureHandling: 'greedy'
 
     };
