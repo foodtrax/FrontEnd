@@ -4,7 +4,6 @@
 $(document).ready(function() {
     loadTruckInformation();
     $('.collapsible').collapsible();
-    M.updateTextFields();
 });
 
 function getCollapsibleBody(truck) {
@@ -49,6 +48,7 @@ function loadTruckInformation()
             });
 
             $("#truckList").html(contentsToAdd);
+            M.updateTextFields();
         }
     )
 }
