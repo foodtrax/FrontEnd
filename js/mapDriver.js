@@ -4,7 +4,7 @@ function initMap() {
 
     var mapProp= {
         center: starting,
-        zoom:17,
+        zoom:18,
         streetViewControl: false,
         fullscreenControl: false,
         zoomControl: true,
@@ -50,6 +50,7 @@ function initMap() {
   }
 
   function handleLocationError(browserHasGeolocation) {
+      map.setZoom(13)
       M.toast({html:browserHasGeolocation ?
                             'Error: The Geolocation service failed.' :
                             'Error: Your browser doesn\'t support geolocation.',
