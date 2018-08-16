@@ -35,8 +35,8 @@ function getCollapsibleBody(truck) {
     contents += '<label for="website-' + truck.id + '">Website</label>';
     contents += '</div>';
     contents += '<button class="btn waves-effect waves-light" type="button" data-truck-id="' + truck.id + '" id="updateButton-' + truck.id  + '">Update</button>';
-    contents += '<button class="btn waves-effect waves-light" type="button" id="updateLocButton-' + truck.id  + '">Update Truck Location</button>';
-    contents += '<button class="btn waves-effect waves-light" type="button" id="hideButton-' + truck.id  + '">Hide Truck from Map</button>';
+    contents += '<button class="btn waves-effect waves-light" type="button" data-truck-id="' + truck.id + '" id="updateLocButton-' + truck.id  + '">Update Truck Location</button>';
+    contents += '<button class="btn waves-effect waves-light" type="button" data-truck-id="' + truck.id + '" id="hideButton-' + truck.id  + '">Hide Truck from Map</button>';
     contents += '<div id="notification-' + truck.id + '"></div>';
     contents += '</div>';
     contents += '</form>';
