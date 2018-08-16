@@ -36,9 +36,7 @@ function initMap() {
           lng: position.coords.longitude
         };
 
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
+        setUserLocation(map, pos)
         map.setCenter(pos);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -101,4 +99,17 @@ function initMap() {
 
     return trucks;
 
+  }
+
+  function setUserLocation(map, latlng) {
+    var image = 'media/loc1.png';
+
+    var marker = new google.maps.Marker({
+      position: latlng,
+      title: "Your current location",
+      icon: image
+
+    });
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
   }
