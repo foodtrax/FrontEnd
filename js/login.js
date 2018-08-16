@@ -18,9 +18,7 @@ function attemptLogin()
         function(data) {
             var json = JSON.parse(data);
             if(json.result === true) {
-                $("#notification").html('You are logged in!');
-                $("#notification").removeClass('notification-bad');
-                $("#notification").addClass('notification-ok');
+                window.location = "https://roc.foodtrax.io/admin.php"
             } else {
                 $("#notification").html('An error occurred during login.');
                 $("#notification").removeClass('notification-ok');
