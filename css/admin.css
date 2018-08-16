@@ -11,3 +11,11 @@
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
+
+.notification-ok {
+    color: #0f9d58;
+}
+
+.notification-bad {
+    color: #d0181e;
+}
