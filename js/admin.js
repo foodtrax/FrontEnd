@@ -150,15 +150,15 @@ function loadTruckInformation()
             M.updateTextFields();
 
             $("button[id*=updateButton]").click(function(element) {
-                var id = element.data('truck-id');
+                var id = element.currentTarget.data('truck-id');
                 updateTruckInformation(id);
             });
             $("button[id*=updateLocButton]").click(function(element) {
-                var id = element.data('truck-id');
+                var id = element.currentTarget.data('truck-id');
                 updateTruckLocation(id);
             });
             $("button[id*=hideButton]").click(function(element) {
-                var id = element.data('truck-id');
+                var id = element.currentTarget.data('truck-id');
                 hideTruckLocation(id);
             });
         }
