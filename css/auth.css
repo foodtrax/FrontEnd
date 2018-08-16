@@ -1,0 +1,29 @@
+.underline-input {
+    border-bottom: 1px solid #9e9e9e !important;
+}
+
+.form-center {
+    margin: auto;
+}
+
+.auth-header {
+    color: black;
+}
+
+.notification-ok {
+    color: #0f9d58;
+}
+
+.notification-bad {
+    color: #d0181e;
+}
+
+.auth-form-container {
+    width: 75%;
+    color: black;
+    margin: 30px auto 0;
+    border: 1px solid gray;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 6px;
+}
