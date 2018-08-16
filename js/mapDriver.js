@@ -100,7 +100,7 @@ function initMap() {
     var markerCluster = new MarkerClusterer(map, trucks.map(x => x.marker),
         {
             imagePath: 'media/m',
-            maxZoom: '17'
+            maxZoom: '18'
     });
 
     return trucks;
