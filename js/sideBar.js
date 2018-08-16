@@ -1,5 +1,9 @@
 var list = document.getElementById('trucks');
 
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+
 // trucks=[
 //         {
 //             name: "Chris's Stupid Taco Truck",
@@ -30,19 +34,36 @@ function makeEntries(trucks) {
 	trucks.forEach(truck =>{
 		entry=document.createElement('li');
 		link = document.createElement('a');
-		link.href = "#!";
-		link.innerHTML='<i class="material-icons">fastfood</i>';
+		el = document.createElement('div');
+		liDesc = document.createElement('li');
+		desc = document.createElement('a');
+
+		link.className += 'collapsible-header';
+		el.className += 'collapsible-body';
+		desc.className += 'subheader';
+
+		// lmao terrible way to do it but just wanna see how it looks rn let me live
+		link.innerHTML='<i class="material-icons">fastfood</i><i class="material-icons right gray-text" style="margin-right:0;">arrow_drop_down</i>';
+
 		name=truck.name;
 		truckName = document.createTextNode(name);
+		description = truck.description;
+		truckDesc = document.createTextNode(description);
+
 		link.appendChild(truckName);
+		desc.appendChild(truckDesc);
+		liDesc.appendChild(desc);
+		el.appendChild(liDesc);
 		entry.appendChild(link);
+		entry.appendChild(el);
+
 		list.appendChild(entry);
 	})
 }
 
+function addDescription(truck) {
+	
+
+}
+
 // makeEntries(trucks);
-
-
-
-
-// entry.innerHTML = '<a href="#!"><i class="material-icons">fastfood</i>' + name + '</a>';
