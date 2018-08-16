@@ -65,6 +65,11 @@ html{
    font-family: 'Raleway', sans-serif !important;
 }
 
+.brand-logo {
+  padding-left: 24px !important;
+  font-weight: bold;
+}
+
 .sidenav {
   width: 400px;
 }
