@@ -1,3 +1,33 @@
+$(document).ready(function(){
+    $('.modal').modal();
+  });
+
+// trucks=[
+//         {
+//             name: "Chris's Stupid Taco Truck",
+//             description: "TACOS!",
+//             twitter: "@_tweedge",
+//             lat: 43.155916,
+//             long: -77.605675
+//         },
+//         {
+//             name: "Bitler's cheeseless pizza",
+//             description: "Pizza!",
+//             twitter: "@chrissy_bits",
+//             lat: 43.156071,
+//             long: -77.605004
+//         }
+//     ]
+
+// var request = new XMLHttpRequest();
+//     request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
+//     request.responseType='text';
+//     request.onload = function() {
+//         trucks=JSON.parse(request.response);
+//         makeEntries(trucks);
+//     };
+//     request.send();
+
 function makeEntries(trucks) {
 	var list = document.getElementById('trucks');
 	trucks.forEach(truck =>{
@@ -24,7 +54,16 @@ function makeEntries(trucks) {
 		entry.appendChild(button);
 
 		list.appendChild(div);
-		// makeModal(trucks);
+		makeModal(truck);
 
 	})
 }
+
+function makeModal(truck) {
+	header=document.getElementById('modalHeader');
+	description=document.getElementById('modalDescription');
+	header.innerHTML = truck.name;
+	description.innerHTML=truck.description;
+}
+
+makeEntries(trucks);
