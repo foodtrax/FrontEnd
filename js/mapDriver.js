@@ -83,7 +83,8 @@ function initMap() {
         map: map,
         icon: 'media/trucc.png',
         optimized: false,
-        title: 'Rochester'
+        title: 'Rochester',
+        animation: google.maps.Animation.DROP
         });
         marker.addListener('click', function() {
             trucks.forEach(truck =>{
@@ -107,13 +108,12 @@ function initMap() {
   }
 
   function setUserLocation(map, latlng) {
-    var image = 'media/loc1.png';
+    var image = 'media/loc.png';
 
     var marker = new google.maps.Marker({
       position: latlng,
       title: "Your current location",
-      icon: image,
-      optimized: false
+      icon: image
     });
     // To add the marker to the map, call setMap();
     marker.setMap(map);
