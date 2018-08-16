@@ -37,32 +37,46 @@ function makeEntries(trucks) {
 		el = document.createElement('div');
 		liDesc = document.createElement('li');
 		desc = document.createElement('a');
+    navBtn = document.createElement('a');
+
 
 		link.className += 'collapsible-header';
 		el.className += 'collapsible-body';
 		desc.className += 'subheader';
+    navBtn.className += 'waves-effect waves-light green btn-small'
 
 		// lmao terrible way to do it but just wanna see how it looks rn let me live
 		link.innerHTML='<i class="material-icons">fastfood</i><i class="material-icons right gray-text" style="margin-right:0;">arrow_drop_down</i>';
+
 
 		name=truck.name;
 		truckName = document.createTextNode(name);
 		description = truck.description;
 		truckDesc = document.createTextNode(description);
 
+    lat = truck.lat;
+    long = truck.long;
+    navBtn.href = 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
+    navBtn.innerHTML = '<i class="material-icons left">near_me</i>Navigate</a>'
+
 		link.appendChild(truckName);
 		desc.appendChild(truckDesc);
 		liDesc.appendChild(desc);
+    liDesc.appendChild(navBtn)
+
 		el.appendChild(liDesc);
 		entry.appendChild(link);
 		entry.appendChild(el);
-
 		list.appendChild(entry);
+
+
+
+
 	})
 }
 
 function addDescription(truck) {
-	
+
 
 }
 
