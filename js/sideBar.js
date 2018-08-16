@@ -1,33 +1,3 @@
-$(document).ready(function(){
-    $('.modal').modal();
-  });
-
-// trucks=[
-//         {
-//             name: "Chris's Stupid Taco Truck",
-//             description: "TACOS!",
-//             twitter: "@_tweedge",
-//             lat: 43.155916,
-//             long: -77.605675
-//         },
-//         {
-//             name: "Bitler's cheeseless pizza",
-//             description: "Pizza!",
-//             twitter: "@chrissy_bits",
-//             lat: 43.156071,
-//             long: -77.605004
-//         }
-//     ]
-
-// var request = new XMLHttpRequest();
-//     request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
-//     request.responseType='text';
-//     request.onload = function() {
-//         trucks=JSON.parse(request.response);
-//         makeEntries(trucks);
-//     };
-//     request.send();
-
 function makeEntries(trucks) {
 	var list = document.getElementById('trucks');
 	trucks.forEach(truck =>{
@@ -36,6 +6,9 @@ function makeEntries(trucks) {
 		button=document.createElement('i');
 		div.className += ('truckEntry');
 		button.setAttribute("data-target", "modal1");
+		button.addEventListener('click', function() {
+			makeModal(truck);
+		})
 		button.className += 'modal-trigger material-icons';
 		button.innerHTML = 'info';
 
@@ -54,16 +27,21 @@ function makeEntries(trucks) {
 		entry.appendChild(button);
 
 		list.appendChild(div);
-		makeModal(truck);
-
+		// makeModal(truck);
 	})
 }
 
 function makeModal(truck) {
 	header=document.getElementById('modalHeader');
 	description=document.getElementById('modalDescription');
+	link=document.createElement('a');
+	link.innerHTML = '<i class="fa fa-twitter" style="font-size:32px align-right"></i>'
+	link.setAttribute("href", "https://twitter.com/" + truck.twitter);
+	twitter=document.createElement('i');
 	header.innerHTML = truck.name;
 	description.innerHTML=truck.description;
-}
+	link.appendChild(twitter);
+	header.appendChild(link);
+} 
 
-makeEntries(trucks);
+// makeEntries(trucks);
