@@ -11,7 +11,9 @@ function initMap() {
         zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_BOTTOM
         },
-        mapTypeControl: false
+        mapTypeControl: false,
+        gestureHandling: 'greedy'
+        
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -79,6 +81,8 @@ function initMap() {
         position: {lat: truck.lat, long: truck.long},
         position: new google.maps.LatLng(truck.lat, truck.long),
         map: map,
+        icon: 'media/trucc.gif',
+        optimized: false,
         title: 'Rochester'
         });
         marker.addListener('click', function() {
@@ -102,13 +106,13 @@ function initMap() {
   }
 
   function setUserLocation(map, latlng) {
-    var image = 'media/loc1.png';
+    var image = 'https://i1.wp.com/rs219.pbsrc.com/albums/cc184/augustine375/Stickman.gif~c200';
 
     var marker = new google.maps.Marker({
       position: latlng,
       title: "Your current location",
-      icon: image
-
+      icon: image,
+      optimized: false
     });
     // To add the marker to the map, call setMap();
     marker.setMap(map);
