@@ -4,7 +4,7 @@ function initMap() {
 
     var mapProp= {
         center: starting,
-        zoom:17,
+        zoom:19,
         streetViewControl: false,
         fullscreenControl: false,
         zoomControl: true,
@@ -12,11 +12,12 @@ function initMap() {
             position: google.maps.ControlPosition.LEFT_BOTTOM
         },
         mapTypeControl: false,
+        clickableIcons: false,
         gestureHandling: 'greedy'
 
     };
     // The map, centered at Uluru
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
     var request = new XMLHttpRequest();
     request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
@@ -24,7 +25,7 @@ function initMap() {
     request.onload = function() {
         trucks = JSON.parse(request.response);
         betterTrucks = addMapMarkers(map,trucks);
-        makeEntries(betterTrucks);
+        makeEntries(map,betterTrucks);
     };
     request.send();
 
@@ -40,21 +41,21 @@ function initMap() {
         setUserLocation(map, pos)
         map.setCenter(pos);
       }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
+        handleLocationError(true);
       });
     } else {
       // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+      handleLocationError(false);
     }
   }
 
-  function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
+  function handleLocationError(browserHasGeolocation) {
+      map.setZoom(13)
+      M.toast({html:browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.',
+                            displayLength: 10000})
+  }
 
   function addMapMarkers(map, trucks){
     markers=[]
@@ -83,7 +84,8 @@ function initMap() {
         map: map,
         icon: 'media/trucc.png',
         optimized: false,
-        title: 'Rochester'
+        title: 'Rochester',
+        animation: google.maps.Animation.DROP
         });
         marker.addListener('click', function() {
             trucks.forEach(truck =>{
@@ -99,7 +101,9 @@ function initMap() {
     var markerCluster = new MarkerClusterer(map, trucks.map(x => x.marker),
         {
             imagePath: 'media/m',
-            maxZoom: '17'
+            maxZoom: '18',
+            animation: google.maps.Animation.DROP
+
     });
 
     return trucks;
@@ -107,13 +111,12 @@ function initMap() {
   }
 
   function setUserLocation(map, latlng) {
-    var image = 'media/loc1.png';
+    var image = 'media/loc.png';
 
     var marker = new google.maps.Marker({
       position: latlng,
       title: "Your current location",
-      icon: image,
-      optimized: false
+      icon: image
     });
     // To add the marker to the map, call setMap();
     marker.setMap(map);
