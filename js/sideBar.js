@@ -12,7 +12,6 @@ function makeEntries(map,trucks) {
 		button.className += 'modal-trigger material-icons';
 		button.innerHTML = 'info';
 
-		// lmao terrible way to do it but just wanna see how it looks rn let me live
 		entry.innerHTML='<i class="material-icons">fastfood</i>';
 		
 		div.setAttribute('onClick','centerOnPlace({lat:'+truck.lat+", lng:"+truck.long+'})');
@@ -31,7 +30,6 @@ function makeEntries(map,trucks) {
 	})
 }
 
-// {lat: -34.397, lng: 150.644}
 function makeModal(truck) {
 	header=document.getElementById('modalHeader');
 	description=document.getElementById('modalDescription');
@@ -40,7 +38,6 @@ function makeModal(truck) {
 	twitter.className += 'fa fa-twitter';
 	twitter.setAttribute('style', 'font-size:32px align-right');
 	link.appendChild(twitter);
-	// link.innerHTML = '<i id="twitterIcon" class="fa fa-twitter" style="font-size:32px align-right"></i>'
 	if (truck.twitter == '') {
 		twitterLink='';
 		twitter.className += 'hidden';
