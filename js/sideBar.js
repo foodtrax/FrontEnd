@@ -1,83 +1,68 @@
 var list = document.getElementById('trucks');
 
 $(document).ready(function(){
-    $('.collapsible').collapsible();
+    $('.modal').modal();
   });
 
-// trucks=[
-//         {
-//             name: "Chris's Stupid Taco Truck",
-//             description: "TACOS!",
-//             twitter: "@_tweedge",
-//             lat: 43.155916,
-//             long: -77.605675
-//         },
-//         {
-//             name: "Bitler's cheeseless pizza",
-//             description: "Pizza!",
-//             twitter: "@chrissy_bits",
-//             lat: 43.156071,
-//             long: -77.605004
-//         }
-//     ]
+trucks=[
+        {
+            name: "Chris's Stupid Taco Truck",
+            description: "TACOS!",
+            twitter: "@_tweedge",
+            lat: 43.155916,
+            long: -77.605675
+        },
+        {
+            name: "Bitler's cheeseless pizza",
+            description: "Pizza!",
+            twitter: "@chrissy_bits",
+            lat: 43.156071,
+            long: -77.605004
+        }
+    ]
 
-var request = new XMLHttpRequest();
-    request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
-    request.responseType='text';
-    request.onload = function() {
-        trucks=JSON.parse(request.response);
-        makeEntries(trucks);
-    };
-    request.send();
+// var request = new XMLHttpRequest();
+//     request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
+//     request.responseType='text';
+//     request.onload = function() {
+//         trucks=JSON.parse(request.response);
+//         makeEntries(trucks);
+//     };
+//     request.send();
 
 function makeEntries(trucks) {
 	trucks.forEach(truck =>{
+		div = document.createElement('div');
 		entry=document.createElement('li');
-		link = document.createElement('a');
-		el = document.createElement('div');
-		liDesc = document.createElement('li');
-		desc = document.createElement('a');
-    navBtn = document.createElement('a');
-
-
-		link.className += 'collapsible-header';
-		el.className += 'collapsible-body';
-		desc.className += 'subheader';
-    navBtn.className += 'waves-effect waves-light foodtrax-peach black-text btn-small'
+		button=document.createElement('i');
+		div.className += ('truckEntry');
+		button.setAttribute("data-target", "modal1");
+		button.className += 'modal-trigger material-icons';
+		button.innerHTML = 'info';
 
 		// lmao terrible way to do it but just wanna see how it looks rn let me live
-		link.innerHTML='<i class="material-icons">fastfood</i><i class="material-icons right gray-text" style="margin-right:0;">arrow_drop_down</i>';
-
+		entry.innerHTML='<i class="material-icons">fastfood</i>';
 
 		name=truck.name;
 		truckName = document.createTextNode(name);
 		description = truck.description;
 		truckDesc = document.createTextNode(description);
 
-    lat = truck.lat;
-    long = truck.long;
-    navBtn.href = 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + long
-    navBtn.innerHTML = '<i class="material-icons left">near_me</i>Navigate</a>'
+    	lat = truck.lat;
+    	long = truck.long;
+    	div.appendChild(entry);
+		entry.appendChild(truckName);
+		entry.appendChild(button);
 
-		link.appendChild(truckName);
-		desc.appendChild(truckDesc);
-		liDesc.appendChild(desc);
-    liDesc.appendChild(navBtn)
-
-		el.appendChild(liDesc);
-		entry.appendChild(link);
-		entry.appendChild(el);
-		list.appendChild(entry);
-
-
-
+		list.appendChild(div);
+		// makeModal(trucks);
 
 	})
 }
 
-function addDescription(truck) {
+function makeModal(trucks) {
 
 
 }
 
-// makeEntries(trucks);
+makeEntries(trucks);

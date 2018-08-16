@@ -23,6 +23,13 @@ main {
   flex: 1 0 auto;
 }
 
+.modal-trigger {
+  border-radius: 50%;
+  float: right !important;
+  position: right !important;
+  margin: 0 0 0 0 !important;
+}
+
 
 .foodtrax-pink {
   background-color: #DA627D !important;
@@ -41,11 +48,30 @@ main {
   color: #FFC09F !important;
 }
 
-
 html{
   font-family: 'Raleway', sans-serif;
 }
 
+.sidenav {
+  width: 400px;
+}
+
+.sidenav div > li > i {
+  float: left;
+  height: 48px;
+  margin: 0 32px 0 0;
+  width: 24px;
+  line-height: 48px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.truckEntry {
+  padding: 0 30px;
+}
+
+.truckEntry:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 /* Map inside tab */
 
 .section {
