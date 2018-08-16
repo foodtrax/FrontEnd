@@ -16,7 +16,7 @@ function initMap() {
 
     };
     // The map, centered at Uluru
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
     var request = new XMLHttpRequest();
     request.open('GET', 'https://roc.foodtrax.io/backend/api/trucks.php');
@@ -24,7 +24,7 @@ function initMap() {
     request.onload = function() {
         trucks = JSON.parse(request.response);
         betterTrucks = addMapMarkers(map,trucks);
-        makeEntries(betterTrucks);
+        makeEntries(map,betterTrucks);
     };
     request.send();
 
