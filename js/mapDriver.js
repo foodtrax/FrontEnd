@@ -57,8 +57,6 @@ function initMap() {
 
   function addMapMarkers(map, trucks){
     markers=[]
-    infoWindows=[]
-
     trucks.forEach(truck =>{
         var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
@@ -91,7 +89,8 @@ function initMap() {
         truck.marker = marker
     })
 
-    var markerCluster = new MarkerClusterer(map, markers,
+
+    var markerCluster = new MarkerClusterer(map, trucks.map(x => x.marker),
         {
             imagePath: 'media/m',
             maxZoom: '17'
