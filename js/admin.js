@@ -1,14 +1,16 @@
 /**
  * The way we generate HTML here is ugly, but we don't have a better alternative
  */
-
-var currentTruck;
-
 $(document).ready(function() {
     loadTruckInformation();
     $('.collapsible').collapsible();
 });
 
+/**
+ * Get the body of a collapsible area by truck
+ * @param truck
+ * @returns {string}
+ */
 function getCollapsibleBody(truck) {
     var contents = "";
 
@@ -44,6 +46,10 @@ function getCollapsibleBody(truck) {
     return contents;
 }
 
+/**
+ * Update a truck's information
+ * @param id
+ */
 function updateTruckInformation(id)
 {
     var name = $("#name-"  + id).val();
@@ -77,6 +83,10 @@ function updateTruckInformation(id)
     )
 }
 
+/**
+ * Update a truck's location
+ * @param id
+ */
 function updateTruckLocation(id)
 {
     if(navigator.geolocation) {
@@ -110,6 +120,10 @@ function updateTruckLocation(id)
     }
 }
 
+/**
+ * Hide a truck
+ * @param id
+ */
 function hideTruckLocation(id)
 {
     $.post(
@@ -132,14 +146,14 @@ function hideTruckLocation(id)
     )
 }
 
-
+/**
+ * Load truck information for this owner.
+ */
 function loadTruckInformation()
 {
     $.get(
         'https://roc.foodtrax.io/backend/api/trucks_from_owner.php',
-        {
-            id: owner_id
-        },
+        {},
         function(data) {
             var json = JSON.parse(data);
             var contentsToAdd = '';
