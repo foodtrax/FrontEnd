@@ -58,8 +58,6 @@ function initMap() {
 
   function addMapMarkers(map, trucks){
     markers=[]
-    infoWindows=[]
-
     trucks.forEach(truck =>{
         var navLink = 'https://www.google.com/maps/search/?api=1&query=' + truck.lat + ',' + truck.long
         var contentString = '<div id="content">'+
@@ -97,7 +95,8 @@ function initMap() {
         truck.marker = marker
     })
 
-    var markerCluster = new MarkerClusterer(map, markers,
+
+    var markerCluster = new MarkerClusterer(map, trucks.map(x => x.marker),
         {
             imagePath: 'media/m',
             maxZoom: '17'
