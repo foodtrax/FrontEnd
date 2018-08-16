@@ -1,6 +1,9 @@
 /**
  * The way we generate HTML here is ugly, but we don't have a better alternative
  */
+
+var currentTruck;
+
 $(document).ready(function() {
     loadTruckInformation();
     $('.collapsible').collapsible();
@@ -76,9 +79,10 @@ function updateTruckInformation(id)
 
 function updateTruckLocation(id)
 {
-    var sid = id;
     if(navigator.geolocation) {
+        currentTruck = id;
         navigator.geolocation.getCurrentPosition(function(loc) {
+            var sid = currentTruck;
             $.post(
                 'https://roc.foodtrax.io/backend/api/update_truck_loc_web.php',
                 {
