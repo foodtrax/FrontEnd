@@ -38,6 +38,6 @@ function makeModal(truck) {
 }
 
 function centerOnPlace(marker){
-	map.setCenter(marker);
 	map.setZoom(17)
+	map.setCenter(marker);
   }
