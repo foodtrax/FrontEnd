@@ -2,7 +2,7 @@
 session_start();
 
 if (!$_SESSION['id']) {
-    http_redirect('https://roc.foodtrax.io/login.html');
+    header('Location: https://roc.foodtrax.io/login.html');
 }
 ?>
 <!DOCTYPE html>
