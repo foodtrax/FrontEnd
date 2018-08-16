@@ -13,7 +13,7 @@ function initMap() {
         },
         mapTypeControl: false,
         gestureHandling: 'greedy'
-        
+
     };
     // The map, centered at Uluru
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -25,7 +25,6 @@ function initMap() {
         trucks = JSON.parse(request.response);
         betterTrucks = addMapMarkers(map,trucks);
         makeEntries(betterTrucks);
-
     };
     request.send();
 
@@ -62,6 +61,7 @@ function initMap() {
     infoWindows=[]
 
     trucks.forEach(truck =>{
+        var navLink = 'https://www.google.com/maps/search/?api=1&query=' + truck.lat + ',' + truck.long
         var contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
@@ -69,6 +69,8 @@ function initMap() {
         '<div id="bodyContent">'+
         // '<p>body text about the first truck</p>'+
         '</div>'+
+        '<a class=\'waves-effect waves-light foodtrax-peach black-text btn-small\' href=\'' + navLink +
+        '\'><i class="material-icons left">near_me</i>Directions</a>'
         '</div>';
 
 
@@ -81,7 +83,7 @@ function initMap() {
         position: {lat: truck.lat, long: truck.long},
         position: new google.maps.LatLng(truck.lat, truck.long),
         map: map,
-        icon: 'media/trucc.gif',
+        icon: 'media/trucc.png',
         optimized: false,
         title: 'Rochester'
         });
@@ -106,7 +108,7 @@ function initMap() {
   }
 
   function setUserLocation(map, latlng) {
-    var image = 'https://i1.wp.com/rs219.pbsrc.com/albums/cc184/augustine375/Stickman.gif~c200';
+    var image = 'media/loc1.png';
 
     var marker = new google.maps.Marker({
       position: latlng,
