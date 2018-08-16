@@ -77,6 +77,7 @@ function updateTruckInformation(id)
 function updateTruckLocation(id)
 {
     var self = this;
+    self.id = id;
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(loc) {
             $.post(
