@@ -129,7 +129,7 @@ function hideTruckLocation(id)
     $.post(
         'https://roc.foodtrax.io/backend/api/hide_truck_web.php',
         {
-            truckId: id,
+            truckId: id
         },
         function(data) {
             var json = JSON.parse(data);
