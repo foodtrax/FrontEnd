@@ -35,9 +35,14 @@ function makeModal(truck) {
 	header=document.getElementById('modalHeader');
 	description=document.getElementById('modalDescription');
 	link=document.createElement('a');
-	link.innerHTML = '<i id="twitterIcon" class="fa fa-twitter" style="font-size:32px align-right"></i>'
-	if (truck.twitter == null) {
+	twitter=document.createElement('i');
+	twitter.className += 'fa fa-twitter';
+	twitter.setAttribute('style', 'font-size:32px align-right');
+	link.appendChild(twitter);
+	// link.innerHTML = '<i id="twitterIcon" class="fa fa-twitter" style="font-size:32px align-right"></i>'
+	if (truck.twitter == '') {
 		twitterLink='';
+		twitter.className += 'hidden';
 	}
 	else {
 		twitterLink="https://twitter.com/" + truck.twitter;
