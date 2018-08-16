@@ -45,6 +45,8 @@ function loadTruckInformation()
                 contentsToAdd += '<div class="collapsible-body">' + getCollapsibleBody(truck) + '</div>';
                 contentsToAdd += '</li>';
             }
+
+            $("#truckList").html(contentsToAdd);
         }
     )
 }
