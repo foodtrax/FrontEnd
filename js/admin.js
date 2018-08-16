@@ -4,6 +4,7 @@
 $(document).ready(function() {
     loadTruckInformation();
     $('.collapsible').collapsible();
+    M.updateTextFields();
 });
 
 function getCollapsibleBody(truck) {
