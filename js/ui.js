@@ -29,7 +29,7 @@ function eraseCookie(name) {
 }
 
 $(document).ready(function() {
-  $('.collapsible').collapsible();
+  $('.modal').modal();
   $('.fixed-action-btn').floatingActionButton();
   $('.sidenav').sidenav({
     menuWidth: 50, // Default is 240
