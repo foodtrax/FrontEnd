@@ -1,4 +1,4 @@
-function makeEntries(trucks) {
+function makeEntries(map,trucks) {
 	var list = document.getElementById('trucks');
 	trucks.forEach(truck =>{
 		div = document.createElement('div');
@@ -11,7 +11,8 @@ function makeEntries(trucks) {
 
 		// lmao terrible way to do it but just wanna see how it looks rn let me live
 		entry.innerHTML='<i class="material-icons">fastfood</i>';
-
+		
+		div.setAttribute('onClick','centerOnPlace({lat:'+truck.lat+", lng:"+truck.long+'})');
 		name=truck.name;
 		truckName = document.createTextNode(name);
 		description = truck.description;
@@ -25,10 +26,10 @@ function makeEntries(trucks) {
 
 		list.appendChild(div);
 		makeModal(truck);
-
 	})
 }
 
+// {lat: -34.397, lng: 150.644}
 function makeModal(truck) {
 	header=document.getElementById('modalHeader');
 	description=document.getElementById('modalDescription');
@@ -36,4 +37,7 @@ function makeModal(truck) {
 	description.innerHTML=truck.description;
 }
 
-makeEntries(trucks);
+function centerOnPlace(marker){
+	map.setCenter(marker);
+	map.setZoom(17)
+  }
