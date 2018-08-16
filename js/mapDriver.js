@@ -4,7 +4,7 @@ function initMap() {
 
     var mapProp= {
         center: starting,
-        zoom:17,
+        zoom:18,
         streetViewControl: false,
         fullscreenControl: false,
         zoomControl: true,
