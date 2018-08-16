@@ -31,10 +31,10 @@ function eraseCookie(name) {
 $(document).ready(function() {
   $('.fixed-action-btn').floatingActionButton();
   $('.sidenav').sidenav({
-    menuWidth: 50, // Default is 240
     edge: 'right', // Choose the horizontal origin
     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
+  $('#slide-out').className += 'sidenav-mods'
 });
 
 $('.tap-target').tapTarget();

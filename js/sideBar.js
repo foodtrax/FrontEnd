@@ -40,9 +40,10 @@ function makeEntries(trucks) {
     navBtn = document.createElement('a');
 
 
-		link.className += 'collapsible-header';
+		link.className += 'header btn';
 		el.className += 'collapsible-body';
 		desc.className += 'subheader';
+
     navBtn.className += 'waves-effect waves-light foodtrax-peach black-text btn-small'
 
 		// lmao terrible way to do it but just wanna see how it looks rn let me live
