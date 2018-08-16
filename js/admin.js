@@ -76,27 +76,26 @@ function updateTruckInformation(id)
 
 function updateTruckLocation(id)
 {
-    var self = this;
-    self.id = id;
+    var sid = id;
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(loc) {
             $.post(
                 'https://roc.foodtrax.io/backend/api/update_truck_loc_web.php',
                 {
-                    truckId: self.id,
+                    truckId: sid,
                     lat: loc.coords.latitude,
                     lon: loc.coords.longitude
                 },
                 function(data) {
                     var json = JSON.parse(data);
                     if(json.result === true) {
-                        $("#notification-" + self.id).html('Truck location updated.');
-                        $("#notification-" + self.id).removeClass('notification-bad');
-                        $("#notification-" + self.id).addClass('notification-ok');
+                        $("#notification-" + sid).html('Truck location updated.');
+                        $("#notification-" + sid).removeClass('notification-bad');
+                        $("#notification-" + sid).addClass('notification-ok');
                     } else {
-                        $("#notification-" + self.id).html('An error occurred during update.');
-                        $("#notification-" + self.id).removeClass('notification-ok');
-                        $("#notification-" + self.id).addClass('notification-bad');
+                        $("#notification-" + sid).html('An error occurred during update.');
+                        $("#notification-" + sid).removeClass('notification-ok');
+                        $("#notification-" + sid).addClass('notification-bad');
                     }
                 }
             )
