@@ -26,7 +26,7 @@ if (!$_SESSION['id']) {
 <main>
     <nav>
         <div class="nav-wrapper foodtrax-pink">
-            <a href="https://roc.foodtrax.io" class="brand-logo center">FoodTrax</a>
+            <a href="https://roc.foodtrax.io" class="brand-logo">FoodTrax</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
             </ul>
