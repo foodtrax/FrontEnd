@@ -33,7 +33,7 @@ if (!$_SESSION['id']) {
         <div class="container">
             <div class="center">
                 <div class="row">
-                    <h4 class="auth-header">Update truck information</h4>
+                    <h4 class="admin-header">Update truck information</h4>
                     <ul class="collapsible" id="truckList">
                     </ul>
                 </div>
