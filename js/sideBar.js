@@ -36,7 +36,6 @@ function makeModal(truck) {
 	link=document.createElement('a');
 	twitter=document.createElement('i');
 	twitter.className += 'fa fa-twitter';
-	twitter.setAttribute('style', 'font-size:32px align-right');
 	link.appendChild(twitter);
 	if (truck.twitter == '') {
 		twitterLink='';
@@ -46,11 +45,26 @@ function makeModal(truck) {
 		twitterLink="https://twitter.com/" + truck.twitter;
 	}
 	link.setAttribute("href", twitterLink);
-	twitter=document.createElement('i');
+
+	fblink=document.createElement('a');
+	fb=document.createElement('i');
+	fb.className += 'fa fa-facebook-official';
+	fblink.appendChild(fb);
+	if (truck.facebook == '') {
+		facebookLink='';
+		fb.className += 'hidden';
+	}
+	else {
+		facebookLink="https://facebook.com/" + truck.facebook;
+	}
+	fblink.setAttribute("href", facebookLink);
+
+
 	header.innerHTML = truck.name;
 	description.innerHTML=truck.description;
 	link.appendChild(twitter);
 	header.appendChild(link);
+	header.appendChild(fblink);
 } 
 
 function centerOnPlace(marker){
@@ -58,4 +72,6 @@ function centerOnPlace(marker){
 	map.setCenter(marker);
 	$(".sidenav").sidenav('close');
   }
+
+  makeEntries(map, trucks);
 
