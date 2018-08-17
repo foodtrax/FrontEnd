@@ -101,7 +101,7 @@ function initMap() {
     var markerCluster = new MarkerClusterer(map, trucks.map(x => x.marker),
         {
             imagePath: 'media/m',
-            maxZoom: '18',
+            maxZoom: '17',
             animation: google.maps.Animation.DROP
 
     });
